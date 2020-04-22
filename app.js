@@ -14,7 +14,12 @@ app.use("/uploads", express.static("uploads"))
 require("./routes")(app)
 const PORT = process.env.PORT || 5000
 
-sequelize.sync().then(() => {
-	app.listen(PORT)
-	console.log(`Server started on port ${PORT}`)
-})
+sequelize
+	.sync()
+	.then(() => {
+		app.listen(PORT)
+		console.log(`Server started on port ${PORT}`)
+	})
+	.catch(err => {
+		console.log(err)
+	})
