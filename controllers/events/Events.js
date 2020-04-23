@@ -49,7 +49,7 @@ module.exports = {
 			}
 		} catch (error) {
 			console.log(error)
-			res.status(400).send({
+			res.status(404).send({
 				error: "Event could not be found",
 			})
 		}
@@ -85,8 +85,8 @@ module.exports = {
 			})
 		} catch (error) {
 			console.log(error)
-			res.status(400).send({
-				error: "Event could not be found",
+			res.status(401).send({
+				error: "Events could not be found",
 			})
 		}
 	},

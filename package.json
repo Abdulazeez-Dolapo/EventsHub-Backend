@@ -1,14 +1,17 @@
 {
 	"name": "server",
 	"version": "1.0.0",
-	"description": "The backend of an event management system",
+	"description": "The backend of an event management system named EventsHub",
 	"main": "app.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node app.js"
 	},
 	"keywords": [
-		"Express"
+		"Node.js",
+		"Express",
+		"Sequelize",
+		"MySQL"
 	],
 	"author": "abdulrafiua10@gmail.com",
 	"license": "ISC",

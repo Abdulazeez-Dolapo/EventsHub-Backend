@@ -5,10 +5,9 @@ module.exports = {
 		user: process.env.DB_USER,
 		password: process.env.DB_PASS,
 		options: {
-			dialect: process.env.DB_DIALECT || "mysql",
+			dialect: process.env.DB_DIALECT,
 			host: process.env.DB_HOST,
-			port: process.env.DB_PORT,
-			storage: "./event_mgt.sql",
+			// port: process.env.DB_PORT,
 		},
 	},
 	jwt: {
