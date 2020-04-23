@@ -13,7 +13,6 @@ function generateToken(user) {
 
 module.exports = {
 	async register(req, res) {
-		console.log(req.body)
 		try {
 			const user = await User.findOne({
 				where: {
@@ -46,7 +45,6 @@ module.exports = {
 
 				const token = generateToken(payload)
 
-				// res.status(200).send({ token })
 				const url = `http://localhost:8080/confirmation/${token}`
 
 				const HelperOptions = {
@@ -98,7 +96,7 @@ module.exports = {
 			})
 
 			if (!user) {
-				return res.status(403).send({
+				return res.status(401).send({
 					error: "Invalid login details",
 				})
 			}
@@ -106,12 +104,12 @@ module.exports = {
 			const checkPassword = bcrypt.compareSync(password, user.password)
 			if (checkPassword) {
 				if (!user.confirmed) {
-					return res.status(403).send({
+					return res.status(401).send({
 						error: "Please confirm your email before proceeding",
 					})
 				}
 			} else {
-				return res.status(403).send({
+				return res.status(401).send({
 					error: "Invalid login details",
 				})
 			}
@@ -131,7 +129,7 @@ module.exports = {
 			})
 		} catch (error) {
 			console.log(error)
-			res.status(500).send({
+			res.status(400).send({
 				error: "An error occured while trying to login",
 			})
 		}
@@ -154,7 +152,7 @@ module.exports = {
 			})
 		} catch (error) {
 			console.log(error)
-			res.status(500).send({
+			res.status(400).send({
 				error: "An error occured while trying to confirm your email",
 			})
 		}
