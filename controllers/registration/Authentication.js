@@ -45,7 +45,7 @@ module.exports = {
 
 				const token = generateToken(payload)
 
-				const url = `http://localhost:8080/confirmation/${token}`
+				const url = `https://eventshub.netlify.app/confirmation/${token}`
 
 				const HelperOptions = {
 					from: "Azeez Dolapo <azeezdolapotest@gmail.com>",
